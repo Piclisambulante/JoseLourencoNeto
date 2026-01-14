@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin, Github, Send } from "lucide-react";
 
 const handleWhatsAppChat = (projectName: string) => {
   const phone = "5547984817923"; // COLOQUE SEU NÚMERO AQUI
-  const message = `Vi seu portifólio e gostaria de entrar em contato`;
+  const message = `Vi seu portifólio e gostaria de entrar em contato.`;
   
   // Codifica a mensagem para o formato de URL
   const encodedMessage = encodeURIComponent(message);

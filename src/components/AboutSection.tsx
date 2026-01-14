@@ -10,7 +10,7 @@ export const AboutSection = () => {
   const infoItems = [
     { icon: MapPin, label: "Localização", value: "Blumenau, SC" },
     { icon: Calendar, label: "Idade", value: "17 anos" },
-    { icon: GraduationCap, label: "Formação", value: "Engenharia de Software" },
+    { icon: GraduationCap, label: "Formando", value: "Engenharia de Software" },
   ];
 
   return (
@@ -38,7 +38,7 @@ export const AboutSection = () => {
               <div className="relative">
                 <div className="aspect-square rounded-2xl bg-gradient-card glass overflow-hidden shadow-card">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <img src="../public/images/bontinho.jpeg" alt="Foto de José" className="w-full h-full object-cover" />
+                    <img src="/images/bontinho.jpeg" alt="Foto de José" className="w-full h-full object-cover" />
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <motion.div

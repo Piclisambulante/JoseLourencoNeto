@@ -1,0 +1,20 @@
+@media (max-width: 768px) {
+  /* Inverte a ordem apenas no Ramos Tattoo */
+
+  .header{
+    display: none;
+    position: fixed;
+  }
+
+  .project_content{
+    margin-top: 200px;
+    margin-left: -200px;
+  }
+
+  /* Mexendo no arredondamento específico dele */
+   .img_individual .image_project img{
+    border-radius: 50% !important;
+    margin-left: 100px;
+    
+  }
+}

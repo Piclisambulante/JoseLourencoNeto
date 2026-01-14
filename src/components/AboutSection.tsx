@@ -10,7 +10,7 @@ export const AboutSection = () => {
   const infoItems = [
     { icon: MapPin, label: "Localização", value: "Blumenau, SC" },
     { icon: Calendar, label: "Idade", value: "17 anos" },
-    { icon: GraduationCap, label: "Formação", value: "Engenharia de Software" },
+    { icon: GraduationCap, label: "Formando", value: "Engenharia de Software" },
   ];
 
   return (

@@ -12,7 +12,7 @@ const skillCategories = [
   {
     icon: Zap,
     title: "Frameworks",
-    skills: ["Spring Boot", "ASP.NET", "Flask", "Node.js", "React"],
+    skills: ["Spring Boot", "ASP.NET", "LangChain4j", "Flask", "Node.js", "React"],
   },
   {
     icon: Database,
@@ -22,7 +22,7 @@ const skillCategories = [
   {
     icon: Wrench,
     title: "Ferramentas",
-    skills: ["Git", "Docker", "Stripe", "Postman", "GitHub"],
+    skills: ["Git", "Docker", "Stripe", "Postman", "Insomnia", "GitHub"],
   },
 ];
 

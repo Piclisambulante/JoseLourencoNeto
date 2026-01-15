@@ -59,9 +59,9 @@ export const AboutSection = () => {
               className="space-y-6"
             >
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Sou um desenvolvedor apaixonado por criar soluções backend robustas e eficientes. 
-                Com experiência prática em desenvolvimento de APIs RESTful e automação de processos, 
-                busco constantemente aprender novas tecnologias e aprimorar minhas habilidades.
+                Sou desenvolvedor apaixonado por programação desde os 10 anos, focado na criação de soluções backend robustas e eficientes. 
+                Tenho experiência prática no desenvolvimento de APIs REST e automação de processos, e busco constantemente aprender novas tecnologias. 
+                Atualmente, estudo LangChain4j para a criação de IAs personalizadas.
               </p>
               
               <p className="text-lg text-muted-foreground leading-relaxed">

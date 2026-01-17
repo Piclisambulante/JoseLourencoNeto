@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Mail, Phone, MapPin, Github, Send } from "lucide-react";
+import "./cssComponents/mobile.css";
 
 const handleWhatsAppChat = (projectName: string) => {
   const phone = "5547984817923"; // COLOQUE SEU NÚMERO AQUI
@@ -67,7 +68,7 @@ export const ContactSection = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 gap-6 mb-12 ">
             {contactInfo.map((item, index) => (
               <motion.div
                 key={item.label}
@@ -82,7 +83,7 @@ export const ContactSection = () => {
                     rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="block glass rounded-2xl p-6 hover:shadow-glow transition-all duration-300 group"
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 ">
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                         <item.icon className="w-6 h-6 text-primary" />
                       </div>
@@ -93,13 +94,13 @@ export const ContactSection = () => {
                     </div>
                   </a>
                 ) : (
-                  <div className="glass rounded-2xl p-6">
+                  <div className="glass rounded-2xl p-6 group">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                         <item.icon className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <div className="text-sm text-muted-foreground mb-1">{item.label}</div>
+                        <div className="text-sm text-muted-foreground mb-1 ">{item.label}</div>
                         <div className="font-semibold">{item.value}</div>
                       </div>
                     </div>

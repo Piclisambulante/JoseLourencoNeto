@@ -122,7 +122,7 @@ const ProjectsSection = () => {
             >
               <motion.div
                 whileHover={{ y: -10 }}
-                className="bg-card border border-border rounded-3xl overflow-hidden group"
+                className="bg-card border border-border rounded-3xl overflow-hidden group1"
                 style={{ boxShadow: "var(--shadow-card)" }}
               >
                 {/* Header with gradient */}

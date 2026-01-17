@@ -1,53 +1,104 @@
 import { motion } from "framer-motion";
-import { ThemeToggle } from "./ThemeToggle";
+import { useState } from "react";
+import { Menu, X, Leaf } from "lucide-react";
 
-const navItems = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Habilidades", href: "#habilidades" },
-  { label: "Projetos", href: "#projetos" },
-  { label: "Contato", href: "#contato" },
-];
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-export const Header = () => {
+  const navLinks = [
+    { href: "#sobre", label: "Sobre" },
+    { href: "#habilidades", label: "Skills" },
+    { href: "#projetos", label: "Projetos" },
+    { href: "#contato", label: "Contato" },
+  ];
+
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50"
     >
-      <div className="max-w-6xl mx-auto header">
-        <nav className="glass-strong rounded-full px-6 py-3 flex items-center justify-between">
+      <div className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
           <motion.a
             href="#"
-            className="text-xl font-bold text-gradient"
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center gap-2 text-xl font-bold"
           >
-            <img src="../public/images/bontinho.jpeg" alt="foto de josé" className="hidden w-12 h-12 rounded-full object-cover" />
-
+            <Leaf className="w-6 h-6 text-primary" />
+            <span className="gradient-text">JL</span>
           </motion.a>
 
-          <ul className=" md:flex items-center gap-8 w-full justify-center text-base md:text-xl content">
-            {navItems.map((item, index) => (
-              <motion.li
-                key={item.href}
-                initial={{ opacity: 0, y: -10 }}
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link, index) => (
+              <motion.a
+                key={link.href}
+                href={link.href}
+                initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -2 }}
+                className="text-muted-foreground hover:text-primary transition-colors font-medium"
               >
-                <a
-                  href={item.href}
-                  className="font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
-                >
-                  {item.label}
-                </a>
-              </motion.li>
+                {link.label}
+              </motion.a>
             ))}
-          </ul>
+            
+            <motion.a
+              href="https://github.com/Piclisambulante"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-4 py-2 bg-gradient-jungle text-primary-foreground font-medium rounded-lg"
+            >
+              GitHub
+            </motion.a>
+          </div>
 
-          <ThemeToggle />
-        </nav>
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 text-foreground"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden pt-4 pb-2"
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="block py-3 text-muted-foreground hover:text-primary transition-colors font-medium border-b border-border/50"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="https://github.com/Piclisambulante"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 px-4 py-2 bg-gradient-jungle text-primary-foreground font-medium rounded-lg"
+            >
+              GitHub
+            </a>
+          </motion.div>
+        )}
       </div>
-    </motion.header>
+    </motion.nav>
   );
 };
+
+export default Navbar;

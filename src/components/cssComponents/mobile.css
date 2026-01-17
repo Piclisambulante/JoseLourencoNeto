@@ -38,7 +38,22 @@
     max-width: 100%;
   }
 
+  .group1{
+    margin-left: -15px;
+    max-width: 100%;
+  }
+
   .teste{
     transform: translateX(15px);
+  }
+}
+
+@media (max-width: 320px) {
+
+  .group{
+    display: grid;
+    row-gap: 12px; /* espaço entre um card e outro */
+    transform: scale(0.85);
+    transform-origin: top left;
   }
 }

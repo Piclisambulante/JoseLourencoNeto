@@ -1,6 +1,12 @@
 @media (max-width: 768px) {
   /* Inverte a ordem apenas no Ramos Tattoo */
+  html, body {
+    overflow-x: hidden;
+  }
 
+  .project{
+    margin-left: 2000px;
+  }
   .header{
     display: none;
     position: fixed;
@@ -16,5 +22,23 @@
     border-radius: 50% !important;
     margin-left: 100px;
     
+  }
+
+  .group{
+    margin-left: 0px;
+    max-width: 100%;
+    background-color: green;
+  }
+
+}
+
+@media (max-width: 375px) {
+  .group{
+    margin-left: -15px;
+    max-width: 100%;
+  }
+
+  .teste{
+    transform: translateX(15px);
   }
 }

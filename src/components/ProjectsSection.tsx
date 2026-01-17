@@ -1,125 +1,223 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { ExternalLink, Layers, ShoppingBag } from "lucide-react";
-import "./cssComponents/mobile.css";
+import { link } from "fs";
+import { ExternalLink, Github, Sparkles, CreditCard, ShoppingBag, BarChart3 } from "lucide-react";
 
-const projects = [
-  {
-    icon: Layers,
-    title: "Solvian",
-    description: "Sistema web fullstack para gestão financeira pessoal. Cadastro de contas bancárias, registro de receitas e despesas, com geração de relatórios e extratos financeiros personalizados.",
-    technologies: ["Java", "Spring Boot", "React", "Flutter", "MySQL"],
-    link: "https://github.com/andre8756/cedup",
-    img: "/images/solvian.png", // Ajustado: remova o ../public
-  },
-  {
-    icon: ShoppingBag,
-    title: "L'azur",
-    description: "E-commerce completo para padaria com integração Mercado Pago (PIX), geração de QR Code, confirmação de pagamentos via webhooks, envio automático de pedidos por e-mail e gerenciamento de imagens em nuvem.",
-    technologies: ["Python", "Flask", "Mercado Pago", "Cloudinary", "PostgreSQL","Flask-Login", "ReportLab", "qrcode","Flask-WTF", "Webhooks"],
+const ProjectsSection = () => {
+  const projects = [
+    {
+      //Solvian
+
+      title: "Solvian",
+      link: "https://github.com/andre8756/cedup",
+      img: "/images/solvian.png", 
+      icon: ShoppingBag,
+      description: "Sistema web fullstack para gestão financeira pessoal. Cadastro de contas bancárias, registro de receitas e despesas, com geração de relatórios e extratos financeiros personalizados.",
+      tech:  ["Java", "Spring Boot", "React", "Flutter", "MySQL"],
+      gradient: "from-accent to-primary",
+      features: ["Gerenciamento de múltiplas contas", "Operações com saldo", "Geração de Extratos Personalizados" ],
+    },
+    {
+      
+      // L'AZUr
+
+      title: "L'azur",
     link: "https://github.com/Piclisambulante/dickproject",
     img: "/images/lazur.png",
-  },
-  {
     icon: ShoppingBag,
-    title: "StockMate",
-    description: "E-commerce completo para padaria com integração Mercado Pago (PIX), geração de QR Code, confirmação de pagamentos via webhooks, envio automático de pedidos por e-mail e gerenciamento de imagens em nuvem.",
-    technologies: ["Python", "Flask", "SQLAlchemy", "PostgreSQL", "Flask-Login","Cloudinary", "ReportLab"],
-    link: "https://github.com/Piclisambulante/stockcontroll",
-    img: "/images/stockmate.png",
-  },
-  {
-    icon: ShoppingBag,
-    title: "RamosTattoo",
-    description: "E-commerce completo para padaria com integração Mercado Pago (PIX), geração de QR Code, confirmação de pagamentos via webhooks, envio automático de pedidos por e-mail e gerenciamento de imagens em nuvem.",
-    technologies: ["JavaScript", "HTML5", "CSS3", "Render"],
-    link: "https://github.com/Piclisambulante/RamosTattoo",
-    img: "/images/ramostattoo.png",
-  },
-];
+    description:
+      "E-commerce completo para padaria com integração ao Mercado Pago, pagamento via PIX por QR Code, confirmação automática via webhooks e envio de e-mails transacionais.",
+    tech: [
+      "Python",
+      "Flask",
+      "Mercado Pago",
+      "PostgreSQL",
+      "Flask-Login",
+      "Flask-WTF",
+      "Cloudinary",
+      "Webhooks",
+      "ReportLab",
+      "QR Code"
+    ],
+    gradient: "from-accent to-primary",
+    features: [
+      "Pagamento via PIX",
+      "Geração de QR Code dinâmico",
+      "Envio automático de e-mails",
+      "Confirmação e validação de pagamentos via webhook"
+    ], 
+    },
+    {
 
-export const ProjectsSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+      // StockMate
+
+      title: "StockMate",
+      link: "https://github.com/Piclisambulante/stockcontroll",
+      img: "/images/stockmate.png",
+      icon: ShoppingBag, 
+      description:
+        "Sistema de controle e gestão de estoque com autenticação de usuários, geração de relatórios em PDF, envio automático de informações por e-mail e gerenciamento de imagens em nuvem.",
+      tech: [
+        "Python",
+        "Flask",
+        "SQLAlchemy",
+        "PostgreSQL",
+        "Flask-Login",
+        "Cloudinary",
+        "ReportLab"
+      ],
+      gradient: "from-primary to-accent",
+      features: [
+        "Controle de estoque (entrada e saída)",
+        "Autenticação de usuários",
+        "Geração de relatórios em PDF",
+        "Envio automático de e-mails",
+        "Gerenciamento de imagens em nuvem"
+      ],
+    },
+    {
+
+      // Ramos Tatttoo
+
+      title: "Ramos Tatttoo",
+      link: "https://github.com/Piclisambulante/RamosTattoo",
+      img: "/images/ramostattoo.png",
+      icon: ShoppingBag,
+      description: "Landing page desenvolvida para o estúdio Ramos Tattoo, com foco em presença online profissional, divulgação do trabalho artístico e contato direto com clientes.",
+      tech: ["JavaScript", "HTML5", "CSS3"],
+      gradient: "from-accent to-primary",
+      features: [""],
+    },
+
+  ];
 
   return (
-    <section id="projetos" className="py-32 relative">
-      <div className="container px-6">
-        <div className="max-w-6xl mx-auto" ref={ref}>
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <span className="text-primary font-mono text-sm mb-4 block">03. Projetos</span>
+    <section id="projetos" className="py-24 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <span className="text-primary font-mono text-sm mb-4 block">03. Projetos</span>
             <h2 className="text-4xl md:text-5xl font-bold">
               Trabalhos em <span className="text-gradient">Destaque</span>
             </h2>
-          </motion.div>
 
-          <div className="space-y-8">
-            {projects.map((project, index) => (
+          <p className="text-muted-foreground text-lg">Coisas legais que eu construí</p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+            >
               <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 * index }}
-                className="group"
+                whileHover={{ y: -10 }}
+                className="bg-card border border-border rounded-3xl overflow-hidden group"
+                style={{ boxShadow: "var(--shadow-card)" }}
               >
-                <div className="glass rounded-3xl p-8 md:p-10 hover:shadow-glow transition-all duration-500 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl opacity-5 blur-3xl group-hover:opacity-10 transition-opacity" />
+                {/* Header with gradient */}
+                <div className={`bg-gradient-to-r ${project.gradient} p-6 relative overflow-hidden`}>
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="absolute -right-8 -top-8 w-32 h-32 bg-background/10 rounded-full"
+                  />
+                  <motion.div
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                    className="absolute -left-4 -bottom-4 w-24 h-24 bg-background/10 rounded-full"
+                  />
                   
-                  <div className="relative z-10">
-                    {/* GANCHO: Adicionamos a classe dinâmica baseada no título aqui */}
-                    <div className={`flex items-start gap-6 container_projeto ${project.title.toLowerCase().replace(/\s+/g, '')}`}>
-
-                      <div className="w-40 h-40 rounded-2xl bg-secondary flex-shrink-0 shadow-lg  overflow-hidden flex items-center image_project ">
+                  <div className="relative flex items-center gap-4">
+                    <div className="w-16 h-16 bg-background/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-2xl bg-secondary flex-shrink-0 shadow-lg  overflow-hidden flex items-center image_project ">
                         <img 
                           src={project.img} 
                           alt={project.title} 
                           className="w-full h-full object-contain img_individual" 
                         />
                       </div>
-                      <div className="flex items-start gap-6 flex-1">
-                      <div className="flex-1 project_content project-content">
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-3 mb-3 group/link"
-                        >
-                          <h3 className="text-2xl md:text-3xl font-bold group-hover/link:text-primary transition-colors">
-                            {project.title}
-                          </h3>
-                          <ExternalLink className="text-primary opacity-0 group-hover:opacity-100 transition-opacity w-5 h-5" />
-                        </a>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-primary-foreground flex items-center gap-2">
+                        {project.title}
                         
-                        <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
-                          {project.description}
-                        </p>
-                        
-                        <div className="flex flex-wrap gap-3">
-                          {project.technologies.map((tech) => (
-                            <span
-                              key={tech}
-                              className="px-4 py-2 rounded-full bg-secondary text-sm font-mono text-secondary-foreground"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      </div>
+                      </h3>
                     </div>
                   </div>
                 </div>
+
+                {/* Content */}
+                <div className="p-6 space-y-4">
+                  <p className="text-muted-foreground leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* Features */}
+                  <div className="flex flex-wrap gap-2">
+                    {project.features.map((feature) => (
+                      <span
+                        key={feature}
+                        className="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full"
+                      >
+                        <Sparkles className="w-3 h-3" />
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Tech stack */}
+                  <div className="pt-4 border-t border-border">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="font-mono text-xs bg-muted px-3 py-1.5 rounded-lg text-muted-foreground"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex gap-3 pt-2">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex-1 flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary font-medium py-3 rounded-xl transition-colors"
+                    >
+                      <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 w-full h-10 justify-center"
+                    >
+                      <Github className="w-4 h-4" />
+                      Código
+                    </a>
+
+                    </motion.button>
+                    
+                  </div>
+                </div>
               </motion.div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
 };
+
+export default ProjectsSection;

@@ -111,7 +111,7 @@ const ProjectsSection = () => {
           <p className="text-muted-foreground text-lg">Coisas legais que eu construí</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto teste">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}

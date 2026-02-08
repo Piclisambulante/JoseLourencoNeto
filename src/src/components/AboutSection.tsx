@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, Calendar, GraduationCap, Code2 } from "lucide-react";
-import "./cssComponents/AboutSection.css";
+import { MapPin, Calendar, GraduationCap } from "lucide-react";
 
 export const AboutSection = () => {
   const ref = useRef(null);
@@ -59,8 +58,19 @@ export const AboutSection = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="space-y-6"
             >
-                
-               <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6"><div className="flex items-center gap-2 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-code-xml w-5 h-5 text-primary"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg><span className="font-mono text-sm text-primary">README.md</span></div><div className="font-mono text-sm space-y-4 text-muted-foreground"><p><span className="text-primary">#</span> <span className="text-foreground font-semibold">Olá, mundo!</span></p><p>Sou estudante de <span className="text-accent">Engenharia de Software</span> com um foco especial em back-end e automação.</p><p>Minha jornada começou cedo, e hoje trabalho com <span className="text-primary">Python</span>, <span className="text-accent">Java</span> e <span className="text-primary">C#</span>.</p><p>Já desenvolvi sistemas reais, trabalho como freelancer, e estou sempre buscando o próximo desafio.</p></div></div>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Sou desenvolvedor apaixonado por programação desde os 10 anos, focado na criação de soluções backend robustas e eficientes. 
+                Tenho experiência prática no desenvolvimento de APIs REST e automação de processos, e busco constantemente aprender novas tecnologias. 
+                Atualmente, estudo LangChain4j para a criação de IAs personalizadas.
+              </p>
+              
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Minha jornada inclui projetos práticos e trabalhos freelance, onde pude aplicar 
+                conhecimentos em <span className="text-primary font-medium">Spring Boot</span>, 
+                <span className="text-primary font-medium"> ASP.NET</span> e 
+                <span className="text-primary font-medium"> Flask</span>, além de integrações 
+                com sistemas de pagamento e automação de processos.
+              </p>
 
               <div className="grid grid-cols-3 gap-4 pt-6">
                 {infoItems.map((item, index) => (

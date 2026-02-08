@@ -17,7 +17,6 @@
     margin-left: -200px;
   }
 
-  /* Mexendo no arredondamento específico dele */
    .img_individual .image_project img{
     border-radius: 50% !important;
     margin-left: 100px;
@@ -52,7 +51,7 @@
 
   .group{
     display: grid;
-    row-gap: 12px; /* espaço entre um card e outro */
+    row-gap: 12px; 
     transform: scale(0.85);
     transform-origin: top left;
   }

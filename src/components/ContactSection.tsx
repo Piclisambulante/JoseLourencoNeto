@@ -128,7 +128,7 @@ export const ContactSection = () => {
                 className="p-2 rounded-full text-green-500 transition-colors"
                 title="Conversar sobre este projeto"
               >
-                enviar mensagem
+                Enviar Mensagem
               </button>
 
             </motion.a>

@@ -57,7 +57,7 @@ export const HeroSection = () => {
             className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
           >
             Estudante de Engenharia de Software com foco em back-end e automação. 
-            Transformando ideias em soluções robustas com Python, Java, C# e TypeScript.
+            Transformando ideias em soluções com Python, Java, C# e TypeScript.
           </motion.p>
 
           <motion.div
